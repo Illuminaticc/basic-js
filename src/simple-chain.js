@@ -5,9 +5,10 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 const chainMaker = {
+  chain: [],
+
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    this.chain.length;
   },
   addLink(/* value */) {
     throw new NotImplementedError('Not implemented');
@@ -18,12 +19,13 @@ const chainMaker = {
     // remove line with error and write your code here
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    this.chain.reverse();
+    return this;
   },
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    const finish = this.chain.join('~~');
+    this.chain = [];
+    return finish;
   }
 };
 
