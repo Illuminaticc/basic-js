@@ -10,13 +10,17 @@ const chainMaker = {
   getLength() {
     this.chain.length;
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  addLink(value) {
+    this.chain.push(`( ${value} )`);
+    return this;
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  removeLink(position) {
+    if (position % 1 !== 0 || isNaN(position) || 0 >= position || position > this.chain.length){
+      this.chain = []
+      throw new Error("You can\'t remove incorrect link!" );
+    }
+    this.chain.splice(position-1, 1);
+    return this;
   },
   reverseChain() {
     this.chain.reverse();
